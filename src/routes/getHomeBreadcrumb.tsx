@@ -34,7 +34,8 @@ export const getHomeBreadcrumb = (pathname: string, userType: number) => {
   if (pathname.startsWith("/home/crew-movement/join-crew")) return match("/home/crew-movement",  "Crew Movement", "Join Crews");
   if (cleanPath.startsWith("/home/crew-movement/crew-list"))return match("/home/crew-movement", "Crew Movement", "Crew List");
   if (cleanPath.startsWith("/home/wages/salary-scale/add-salary-scale"))return match("/home/wages/salary-scale", "Salary Scale", "Add Salary Scale");
-
+  if (pathname.startsWith("/home/settings")) { return match("/home/dashboard", "Home", "Manage Settings"); }
+  
   // fallback: check against route config
   const route = routes.find(r => r.href === pathname);
   if (route) return route.label;

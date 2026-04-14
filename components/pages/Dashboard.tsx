@@ -21,14 +21,16 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "../ui/chart";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getDashboardList,
   DashboardItem,
   SalaryProcessedItem,
 } from "@/src/services/dashboard/dashboard.api";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { getCurrentUser } from "@/src/services/auth/auth.api";
+import axiosInstance from "@/src/lib/axios";
+import { getSiteSettings } from "@/src/services/settings/settings.helpers";
+import { SettingsItem } from "@/src/services/settings/settings.api";
 
 type Dashboard = {
   TotalVessels: number;
@@ -50,6 +52,8 @@ type Dashboard = {
 export default function Dashboard() {
   const [dashboardData, setDashboardData] =
     React.useState<DashboardItem | null>(null);
+  const [settingsConfig, setSettingsConfig] = useState<SettingsItem[]>([]);
+  const [loadingSettings, setLoadingSettings] = useState(true);
 
   useEffect(() => {
     getDashboardList()
@@ -64,52 +68,19 @@ export default function Dashboard() {
   }, []);
 
   useEffect(() => {
-    const testUser = async () => {
-      try {
-        const user = await getCurrentUser();
-      } catch (err) {
-        console.error('[RootLayout] Failed to fetch user:', err);
-      }
-    };
-
-    testUser();
+    axiosInstance.get("/config").then((res) => {
+      if (res.data.success) setSettingsConfig(res.data.data);
+    }).finally(() => setLoadingSettings(false));
   }, []);
 
-  // const totalPerVesselAllotmentPHP = React.useMemo(() => {
-  //   if (!dashboardData?.PerVesselAllotmentPHP) return 0;
+  const { siteTitle } = getSiteSettings(settingsConfig);
 
-  //   return Object.values(dashboardData.PerVesselAllotmentPHP).reduce(
-  //     (sum, current) => sum + current,
-  //     0
-  //   );
-  // }, [dashboardData?.PerVesselAllotmentPHP]);
-
-  // const totalPerVesselAllotmentUSD = React.useMemo(() => {
-  //   if (!dashboardData?.PerVesselAllotmentUSD) return 0;
-
-  //   return Object.values(dashboardData.PerVesselAllotmentUSD).reduce(
-  //     (sum, current) => sum + current,
-  //     0
-  //   );
-  // }, [dashboardData?.PerVesselAllotmentUSD]);
-
-  const totalSalaryProcessed = React.useMemo(() => {
-    if (!dashboardData?.TotalSalaryProcessed) return 0;
-    return dashboardData.TotalSalaryProcessed.reduce(
-      (sum, item) => sum + item.Value,
-      0
-    );
-  }, [dashboardData?.TotalSalaryProcessed]);
-
-  // Format salary data for the chart
   const formattedSalaryData = React.useMemo(() => {
     if (!dashboardData?.TotalSalaryProcessed) return [];
 
     return dashboardData.TotalSalaryProcessed.map((item) => {
-      // Parse the ISO date string
       const date = new Date(item.MonthYear);
 
-      // Format the month name
       const monthName = date.toLocaleString("default", { month: "long" });
       const year = date.getFullYear();
 
@@ -117,15 +88,14 @@ export default function Dashboard() {
         month: `${monthName} ${year}`,
         shortMonth: monthName.slice(0, 3),
         salary: item.Value,
-        date: date, // Keep the date object for sorting
+        date: date,
       };
-    }).sort((a, b) => a.date.getTime() - b.date.getTime()); // Sort by date
+    }).sort((a, b) => a.date.getTime() - b.date.getTime());
   }, [dashboardData?.TotalSalaryProcessed]);
 
   const vesselData = React.useMemo(() => {
     if (!dashboardData?.PerVesselAllotmentPHP) return [];
 
-    // Array of colors to use for the chart segments
     const colors = [
       "#4F46E5",
       "#60A5FA",
@@ -236,14 +206,11 @@ export default function Dashboard() {
 
   return (
     <div className="h-full w-full p-6 pt-3">
-      {/* <p className="text-4xl font-semibold my-3">Dashboard</p> */}
-
-      {/* Welcome Card */}
       <Card className="my-3">
         <CardContent className="p-3 flex justify-between items-center">
           <div className="pl-6">
-            <h1 className="text-3xl font-semibold text-blue-800 mb-1">
-              Welcome to IMS Philippine Maritime Corp
+            <h1 className="text-3xl font-semibold text-primary mb-1">
+              Welcome to {siteTitle || "Company Name"}
             </h1>
             <p className="text-xl text-gray-600">
               Stay updated with the latest allotment payroll details, ensuring
@@ -272,7 +239,7 @@ export default function Dashboard() {
 
       {/* Stats Row 1 */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-3 mb-3">
-        <Card className="bg-blue-800 text-white py-3">
+        <Card className="bg-primary text-white py-3">
           <CardContent className=" pt-0 h-full flex flex-col justify-between gap-y-5">
             <p className="text-xl pt-0">Total Vessel</p>
             <h3 className="text-3xl font-bold self-end mt-4">
@@ -281,7 +248,7 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card className="bg-blue-800 text-white py-3">
+        <Card className="bg-primary text-white py-3">
           <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-10">
             <p className="text-xl pt-0">Total Active Crew</p>
             <h3 className="text-3xl font-bold self-end mt-4">
@@ -290,7 +257,7 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card className="bg-blue-800 text-white py-3">
+        <Card className="bg-primary text-white py-3">
           <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
             <p className="text-xl pt-0">Total On Board Crew</p>
             <h3 className="text-3xl font-bold self-end mt-4">
@@ -299,7 +266,7 @@ export default function Dashboard() {
           </CardContent>
         </Card>
 
-        <Card className="bg-blue-800 text-white py-3">
+        <Card className="bg-primary text-white py-3">
           <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
             <p className="text-xl pt-0">Total Off Board Crew</p>
             <h3 className="text-3xl font-bold self-end mt-4">
@@ -322,7 +289,7 @@ export default function Dashboard() {
                   1 USD = {dashboardData?.ForexRate ?? 0} PHP
                 </h3>
               </div>
-              <div className="text-blue-600">
+              <div className="text-primary">
                 <GrLineChart className="h-20 w-20 mr-5 mt-5" />
               </div>
             </div>
@@ -350,7 +317,7 @@ export default function Dashboard() {
                   }).format(dashboardData?.NetAllotment ?? 0)}
                 </h3>
               </div>
-              <div className="text-blue-600">
+              <div className="text-primary">
                 <GrLineChart className="h-20 w-20 mr-5 mt-5" />
               </div>
             </div>
@@ -373,7 +340,7 @@ export default function Dashboard() {
                   }).format(dashboardData?.MonthlyAllotmentPHP ?? 0)}
                 </h3>
               </div>
-              <div className="text-blue-600">
+              <div className="text-primary">
                 <GrLineChart className="h-20 w-20 mr-5 mt-5" />
               </div>
             </div>
@@ -531,11 +498,11 @@ export default function Dashboard() {
                   <Area
                     dataKey="salary"
                     type="natural"
-                    fill="url(#colorDesktop)"
-                    stroke="#4F46E5"
+                    fill="var(--primary)"
+                    stroke="var(--primary)"
                     name="Total Salary"
                     dot={{
-                      fill: "#4F46E5",
+                      fill: "var(--primary",
                       strokeWidth: 2,
                       r: 3,
                       stroke: "white",

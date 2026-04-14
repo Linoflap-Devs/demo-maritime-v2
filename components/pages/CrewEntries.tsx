@@ -38,9 +38,7 @@ export default function Deduction() {
   const [searchTerm, setSearchTerm] = useState("");
   const [rankFilter, setRankFilter] = useState("all");
   const [vesselFilter, setVesselFilter] = useState("all");
-  //const [inactiveFilter, setInactiveFilter] = useState("verified");
   const [ranks, setRanks] = useState<CrewRankItem[]>([]);
-  //const [vessels, setVessels] = useState<VesselItem[]>([]);
   const [crewDeductionData, setCrewDeductionData] = useState<CrewDeduction[]>(
     []
   );

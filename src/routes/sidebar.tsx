@@ -2,16 +2,18 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import {
   LogOut,
-  ChevronRight as ChevronRightIcon,
   ChevronDown,
   MoreVertical,
   User2,
+  Settings,
 } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { SettingsItem } from "../services/settings/settings.api";
+import { getSiteSettings } from "../services/settings/settings.helpers";
 
 interface SidebarProps {
   routes: {
@@ -35,14 +37,14 @@ interface SidebarProps {
     UserTypeName: string
   }
   onLogout: () => void;
+  settingsConfig: SettingsItem[];
 }
 
-// Sidebar component
 export function Sidebar({
   user,
   routes,
   isCollapsed,
-  // onToggleCollapse,
+  settingsConfig,
   onLogout,
 }: SidebarProps) {
   const [openDropdowns, setOpenDropdowns] = useState<{[key: string]: boolean;
@@ -55,6 +57,7 @@ export function Sidebar({
       [label]: !prev[label],
     }));
   };
+  const { siteLogoUrl, companyAbbreviation } = getSiteSettings(settingsConfig);
 
   return (
     <>
@@ -77,16 +80,15 @@ export function Sidebar({
             )}
           >
             <Image
-              src="/logo.png"
-              alt="Profile Logo"
+              src={siteLogoUrl}
+              alt={`Company Logo`}
               width={50}
               height={50}
-              className="object-contain h-full w-full"
             />
           </div>
           {!isCollapsed && (
             <div className="flex flex-col">
-              <h2 className="text-xl font-bold text-sidebar-primary">IMS</h2>
+              <h2 className="text-xl font-bold text-black">{companyAbbreviation}</h2>
               <p className="text-sm text-sidebar-foreground">Payroll</p>
             </div>
           )}
@@ -141,7 +143,6 @@ export function Sidebar({
                         </>
                       )}
                     </Link>
-
                     {!isCollapsed && openDropdowns[route.label] && (
                       <div className="ml-8 mt-1 space-y-1">
                         {route.subItems.map((subItem) => (
@@ -213,7 +214,6 @@ export function Sidebar({
                 {user?.Email ? user?.Email.substring(0, 2).toUpperCase() : ""}
               </AvatarFallback>
             </Avatar>
-
             {!isCollapsed && (
               <>
                 <div className="flex flex-col min-w-0 overflow-hidden">
@@ -248,6 +248,14 @@ export function Sidebar({
                         <User2 className="h-5 w-5 text-sidebar-foreground hover:text-sidebar-accent-foreground" />
                         User Profile
                       </Link>
+                      <Link
+                        href={`/home/settings`}
+                        className="flex items-center gap-2 p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+                      >
+                        <Settings className="h-5 w-5 text-sidebar-foreground hover:text-sidebar-accent-foreground" />
+                        Manage System
+                      </Link>
+
                       <div className="border-t my-1 border-gray-200 dark:border-gray-700" />
 
                       <button
