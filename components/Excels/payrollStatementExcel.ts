@@ -128,7 +128,6 @@ export function generatePayrollExcel(
         wsData.push([
           `Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): ${formatDateTimeUTC(new Date())}`,
         ]);
-        wsData.push([`Current User's Login: ${currentUser}`]);
         wsData.push(["(This is a system generated document and does not require signature)"]);
 
         const ws = XLSX.utils.aoa_to_sheet(wsData);

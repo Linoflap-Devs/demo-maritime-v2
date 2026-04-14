@@ -371,6 +371,5 @@ function generateCrewPayrollPage(
 
     // Use your specified format for date/time and user
     doc.text("Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): " + formatDate(new Date()), margin, y);
-    doc.text("Current User's Login: " + currentUser, margin, y + 5); 
-    doc.text("(This is a system generated document and does not require signature)", margin, y + 10);
+    doc.text("(This is a system generated document and does not require signature)", margin, y + 5);
 }

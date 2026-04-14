@@ -160,14 +160,6 @@ export function generatePayrollPDF(
     }
 }
 
-/**
- * Generate a single page for a crew member
- * @param doc The jsPDF document
- * @param period The period information
- * @param vessel The vessel information
- * @param crewData The crew member's payroll data
- * @param currentUser Current user login name
- */
 function generateCrewPayrollPage(
     doc: jsPDF,
     period: PayslipPeriod,
@@ -401,6 +393,5 @@ function generateCrewPayrollPage(
 
     // Use your specified format for date/time and user
     doc.text("Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): " + formatDate(new Date()), margin, y);
-    doc.text("Current User's Login: " + currentUser, margin, y + 5); 
-    doc.text("(This is a system generated document and does not require signature)", margin, y + 10);
+    doc.text("(This is a system generated document and does not require signature)", margin, y + 5);
 }

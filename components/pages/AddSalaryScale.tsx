@@ -1090,19 +1090,7 @@ export default function AddSalaryScale() {
                                 colSpan={4}
                                 className="text-center py-12 text-muted-foreground"
                               >
-                                <div className="space-y-3">
-                                  <p>No entries for this wage type</p>
-                                  <Button
-                                    variant="outline"
-                                    onClick={() => {
-                                      setRankDialogMode("existing");
-                                      setExistingDraftRankIds([]);
-                                      setShowRankChecklistDialog(true);
-                                    }}
-                                  >
-                                    Add Rank/s
-                                  </Button>
-                                </div>
+                                No entries for this wage type
                               </TableCell>
                             </TableRow>
                           ) : (
@@ -1166,6 +1154,21 @@ export default function AddSalaryScale() {
                           )}
                         </TableBody>
                       </Table>
+                    </div>
+                    <div className="mt-6 flex flex-col border rounded-lg p-6 items-center gap-2 text-center">
+                      <p className="text-sm text-muted-foreground">
+                        You can add more ranks
+                      </p>
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          setRankDialogMode("existing");
+                          setExistingDraftRankIds([]);
+                          setShowRankChecklistDialog(true);
+                        }}
+                      >
+                        Add Rank/s
+                      </Button>
                     </div>
                   </TabsContent>
                 );

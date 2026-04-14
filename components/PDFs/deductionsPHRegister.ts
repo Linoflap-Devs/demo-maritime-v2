@@ -386,13 +386,6 @@ export function generatePHRegisterPDF(
             );
         }
 
-
-        // Add footer with current date/time and user on last page
-        // doc.setFontSize(8);
-        // doc.setFont('helvetica', 'italic');
-        // doc.text("Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): " + getCurrentDateTime(), margins.left, pageHeight - margins.bottom - 20);
-        // doc.text("Current User's Login: " + currentUser, margins.left, pageHeight - margins.bottom - 15);
-
         // Save the PDF
         const fileName = mode === 'vessel' ?
                 `Philhealth_${capitalizeFirstLetter(vesselData.VesselName.replace(' ', '-'))}_${capitalizeFirstLetter(period.month)}-${period.year}.pdf` : 
