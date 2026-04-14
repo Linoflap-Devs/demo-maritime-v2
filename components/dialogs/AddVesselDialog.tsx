@@ -190,7 +190,7 @@ export function AddVesselDialog({
       <DialogContent className="p-0 max-w-[600px] gap-0 border rounded-lg overflow-hidden bg-[#FCFCFC]">
         <div className="p-6 pb-8">
           <div className="flex justify-center items-center mb-8">
-            <DialogTitle className="text-2xl font-bold text-[#2F3593]">
+            <DialogTitle className="text-2xl font-bold text-primary">
               Add Vessel
             </DialogTitle>
           </div>
@@ -312,7 +312,7 @@ export function AddVesselDialog({
                 </DialogClose>
                 <Button
                   type="submit"
-                  className="flex-1 bg-[#2F3593] text-white hover:bg-[#252a72] rounded-md"
+                  className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
                   disabled={isSubmitting}>
                   <Plus className="mr-2 h-4 w-4" /> Save Vessel
                 </Button>

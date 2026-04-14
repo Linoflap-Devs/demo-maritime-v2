@@ -163,7 +163,7 @@ export function CrewHeader({
                     setTriggerAdd(true);
                   }}
                   disabled={isAddLoading}
-                  className="bg-[#21299D] hover:bg-indigo-700 px-6 w-40 text-white hover:text-white"
+                  className="bg-primary hover:bg-primary/70 px-6 w-40 px-6 w-40 text-white hover:text-white"
                 >
                   {isAddLoading ? (
                     <>
@@ -189,7 +189,7 @@ export function CrewHeader({
                   Edit
                 </Button>
                 <Button
-                  className="bg-[#21299D] hover:bg-indigo-700 px-6 w-40"
+                  className="bg-primary hover:bg-primary/70 px-6 w-40"
                   onClick={toggleAllotteeAdd}
                 >
                   <Plus />
@@ -222,7 +222,7 @@ export function CrewHeader({
             </Button>
 
             <Button
-              className="bg-[#21299D] hover:bg-indigo-700 px-6 w-40"
+              className="bg-primary hover:bg-primary/70 px-6 w-40"
               onClick={handleTriggerVerify}
               disabled={isVerifying || isCrewVerified === 1 || !isRegistered}
             >

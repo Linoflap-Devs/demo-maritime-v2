@@ -286,7 +286,7 @@ export default function VesselPayslip() {
               </h2>
               <Badge
                 variant="secondary"
-                className="mt-2 px-6 py-0 bg-[#DFEFFE] text-[#292F8C]">
+                className="mt-2 px-6 py-0 bg-[#DFEFFE] text-primary">
                 Active
               </Badge>
             </div>

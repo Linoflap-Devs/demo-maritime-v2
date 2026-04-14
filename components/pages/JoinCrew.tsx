@@ -490,7 +490,7 @@ export default function JoinCrewPage() {
 
             <div className="flex items-end justify-end">
               <Button
-                className="bg-[#2F3593] hover:bg-[#252a72] w-full"
+                className="bg-primary hover:bg-[#252a72] w-full"
                 onClick={() => handleSubmit(selectedCrew)}
                 disabled={isLoading}
               >

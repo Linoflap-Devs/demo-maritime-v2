@@ -285,7 +285,7 @@ export default function CrewPayroll() {
               <Button
                 variant="outline"
                 onClick={clearFilters}
-                className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-[#6366F1]"
+                className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-primary"
               >
                 Clear Filters
               </Button>

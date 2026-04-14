@@ -85,8 +85,6 @@ export default function AddSalaryScale() {
 
   const hasFetchedRef = useRef(false);
 
-  // ─── Derived data ────────────────────────────────────────────────────────
-
   const wageDescriptionsSorted = useMemo(() => {
     return wageDescriptions
       .filter((w) => w.WageName?.trim())

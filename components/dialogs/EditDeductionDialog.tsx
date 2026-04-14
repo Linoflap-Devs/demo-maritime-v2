@@ -147,7 +147,7 @@ export function EditDeductionDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[600px] bg-[#FCFCFC]">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Edit Deduction Entry
           </DialogTitle>
         </DialogHeader>
@@ -166,7 +166,7 @@ export function EditDeductionDialog({
                     Deduction Date
                     <HoverCard openDelay={100}>
                       <HoverCardTrigger asChild>
-                        <Info className="w-4 h-4 cursor-pointer transition-colors text-gray-400 hover:text-blue-500" />
+                        <Info className="w-4 h-4 cursor-pointer transition-colors text-gray-400 hover:text-primary" />
                       </HoverCardTrigger>
                       <HoverCardContent
                         side="right"
@@ -265,7 +265,7 @@ export function EditDeductionDialog({
               </Button>
               <Button
                 type="submit"
-                className="flex-1 text-sm h-11 bg-[#2E37A4] hover:bg-[#2E37A4]/90"
+                className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

@@ -163,7 +163,7 @@ export function EditCrewGovtRecordsDialog({
     <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className="sm:max-w-[600px] bg-[#FCFCFC] p-10">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Edit Crew Government Records
           </DialogTitle>
         </DialogHeader>
@@ -215,7 +215,7 @@ export function EditCrewGovtRecordsDialog({
               </Button>
               <Button
                 type="submit"
-                className="flex-1 text-sm bg-[#2E37A4] hover:bg-[#2E37A4]/90"
+                className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

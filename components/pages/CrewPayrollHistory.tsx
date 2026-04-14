@@ -30,8 +30,6 @@ import PDFPreview from "../dialogs/PDFPreviewModal";
 export default function CrewPayrollHistory() {
   const [payrollData, setPayrollData] = useState<CrewPayrollHistoryItem[]>([]);
   const [isDataLoading, setIsDataLoading] = useState<boolean>(true);
-  //const [monthFilter, setMonthFilter] = useState((new Date().getMonth() + 1).toString());
-  //const [yearFilter, setYearFilter] = useState(new Date().getFullYear().toString());
   const [monthFilter, setMonthFilter] = useState("all");
   const [yearFilter, setYearFilter] = useState("all");
   const [selectedCrewPayrollItem, setSelectedCrewPayrollItem] = useState<CrewPayrollHistoryItem | null>(null);

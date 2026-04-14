@@ -508,7 +508,7 @@ export default function CrewList() {
                 <Button
                   variant="outline"
                   onClick={clearFilters}
-                  className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-[#6366F1]"
+                  className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-primary"
                 >
                   <span className="flex items-center" >
                     <MdClose className="mr-2" />

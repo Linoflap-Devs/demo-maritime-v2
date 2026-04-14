@@ -302,7 +302,7 @@ export default function Remittance() {
 
               <Button
                 variant="outline"
-                className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-[#6366F1]"
+                className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-primary"
                 onClick={() => {
                   setRankFilter("all");
                   setVesselFilter("all");

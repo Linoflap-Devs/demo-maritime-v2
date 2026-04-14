@@ -81,12 +81,12 @@ const CardsSkeleton = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
       {Array.from({ length: 4 }).map((_, index) => (
-        <Card key={index} className="bg-blue-800 text-white py-3">
+        <Card key={index} className="bg-primary text-white py-3">
           <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
-            <Skeleton className="h-6 w-3/4 bg-blue-700" />
+            <Skeleton className="h-6 w-3/4 bg-primary" />
             <div className="flex justify-between w-full">
-              <Skeleton className="h-8 w-[10%] bg-blue-700" />
-              <Skeleton className="h-8 w-[50%] bg-blue-700" />
+              <Skeleton className="h-8 w-[10%] bg-primary" />
+              <Skeleton className="h-8 w-[50%] bg-primary" />
             </div>
           </CardContent>
         </Card>
@@ -776,7 +776,7 @@ export default function Allotment() {
                   {
                     (forexRate > 0) ? (
                       <Button
-                        className="bg-blue-200 hover:bg-blue-300 text-blue-900 h-10 px-6 text-sm"
+                        className="bg-primary/20 hover:bg-primary/40 text-primary h-10 px-6 text-sm"
                         disabled={payrollLoading || isDataLoading}
                       >
                         {payrollLoading ? (
@@ -796,7 +796,7 @@ export default function Allotment() {
                         <TooltipTrigger asChild>
                           <span className="w-full">
                             <Button
-                              className="w-full bg-blue-200 hover:bg-blue-300 text-blue-900 h-10 px-6 text-sm cursor-not-allowed opacity-70"
+                              className="w-full bg-primary/20 hover:bg-primary/40 text-primary h-10 px-6 text-sm cursor-not-allowed opacity-70"
                               onClick={(e) => e.preventDefault()} // prevent click actions
                             >
                               <MdOutlineFileUpload className="w-4 h-4" />
@@ -958,7 +958,7 @@ export default function Allotment() {
             <CardsSkeleton />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
-              <Card className="bg-blue-800 text-white py-3">
+              <Card className="bg-primary text-white py-3">
                 <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
                   <p className="text-xl pt-0">Exchange rate of USD</p>
                   <div className="text-3xl font-bold self-end mt-4 flex justify-between w-full">
@@ -967,7 +967,7 @@ export default function Allotment() {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-blue-800 text-white py-3">
+              <Card className="bg-primary text-white py-3">
                 <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
                   <p className="text-xl pt-0">Total Gross Allotment</p>
                   <div className="text-3xl font-bold self-end mt-4 flex justify-between w-full">
@@ -981,7 +981,7 @@ export default function Allotment() {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-blue-800 text-white py-3">
+              <Card className="bg-primary text-white py-3">
                 <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
                   <p className="text-xl pt-0">Total Deduction</p>
                   <div className="text-3xl font-bold self-end mt-4 flex justify-between w-full">
@@ -995,7 +995,7 @@ export default function Allotment() {
                   </div>
                 </CardContent>
               </Card>
-              <Card className="bg-blue-800 text-white py-3">
+              <Card className="bg-primary text-white py-3">
                 <CardContent className="pt-0 h-full flex flex-col justify-between gap-y-5">
                   <p className="text-xl pt-0">Total Net Allotment</p>
                   <div className="text-3xl font-bold self-end mt-4 flex justify-between w-full">

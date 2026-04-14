@@ -94,7 +94,7 @@ export function AddAllotteeReqDialog({
       <DialogContent className="p-2 max-w-[600px] gap-0 border rounded-lg overflow-hidden bg-[#FCFCFC]">
         <div className="p-6 pb-8">
           <div className="flex justify-center items-center mb-8">
-            <DialogTitle className="text-2xl font-bold text-[#2F3593]">
+            <DialogTitle className="text-2xl font-bold text-primary">
               Allottee Application Details
             </DialogTitle>
           </div>
@@ -309,7 +309,7 @@ export function AddAllotteeReqDialog({
 
                   <Button
                     type="button"
-                    className="flex-1 bg-[#2F3593] text-white hover:bg-[#252a72] rounded-md p-5"
+                    className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90 p-5"
                     onClick={() => handleProcess(2)}
                     disabled={
                       isSubmitting || selectedApplicationStatus === "Approved"
@@ -324,7 +324,7 @@ export function AddAllotteeReqDialog({
               {selectedApplicationStatus === "Approved" && (
                 <Button
                   type="button"
-                  className="flex-1 bg-[#2F3593] text-white hover:bg-[#252a72] rounded-md p-5"
+                  className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90 p-5"
                   onClick={handleClose}
                   disabled={isSubmitting}
                 >

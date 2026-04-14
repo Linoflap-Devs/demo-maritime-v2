@@ -93,7 +93,7 @@ export function DeleteAllotteeReqDialog({
       <DialogContent className="p-2 max-w-[600px] gap-0 border rounded-lg overflow-hidden bg-[#FCFCFC]">
         <div className="p-6 pb-8">
           <div className="flex justify-center items-center mb-8">
-            <DialogTitle className="text-2xl font-bold text-[#2F3593] items-center">
+            <DialogTitle className="text-2xl font-bold text-primary items-center">
               View Delete Allottee Request
             </DialogTitle>
           </div>
@@ -285,7 +285,7 @@ export function DeleteAllotteeReqDialog({
             <div className="flex gap-4 pt-6">
               <Button
                 type="button"
-                className="flex-1 bg-[#2F3593] text-white hover:bg-[#252a72] hover:color-[#fffff] rounded-md p-5"
+                className="flex-1 bg-primary text-white hover:bg-[#252a72] hover:color-[#fffff] rounded-md p-5"
                 onClick={() => handleClose()}
                 disabled={isSubmitting}>
                 Close

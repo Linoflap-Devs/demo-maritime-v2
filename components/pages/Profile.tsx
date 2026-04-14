@@ -178,7 +178,7 @@ const passwordSchema = z
                           {user?.Email || "N/A"}
                         </p>
                         <p className="text-sm font-medium text-secondary-foreground mt-1 flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-blue-800"></span>
+                          <span className="w-2 h-2 rounded-full bg-primary"></span>
                           {user?.UserTypeName || "N/A"}
                         </p>
                       </div>

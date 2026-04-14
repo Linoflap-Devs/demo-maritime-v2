@@ -1018,7 +1018,7 @@ export default function VesselProfile() {
       <Dialog open={openExportModal} onOpenChange={setOpenExportModal}>
         <DialogContent className="sm:max-w-[600px] bg-[#FCFCFC] p-10">
           <DialogHeader className="mb-4">
-            <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+            <DialogTitle className="text-center text-2xl font-semibold text-primary">
               Select Year and Month
             </DialogTitle>
           </DialogHeader>
@@ -1072,7 +1072,7 @@ export default function VesselProfile() {
             <Button
               type="button"
               onClick={handleExport}
-              className="flex-1 bg-[#2E37A4] hover:bg-[#2E37A4]/90 text-white"
+              className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
             >
               {loadingPDFExport ? (
                 <>

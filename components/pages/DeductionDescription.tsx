@@ -84,11 +84,6 @@ export default function Deduction() {
     }
   }, [onSuccess]);
 
-  // Handle tab change
-  // const handleTabChange = (value: string) => {
-  //   setActiveTab(value);
-  // };
-
   const deductionDescriptionColumns: ColumnDef<DeductionDescriptionItem>[] = [
     {
       accessorKey: "deductionCode",
@@ -263,13 +258,11 @@ export default function Deduction() {
         `}</style>
         <div className="h-full overflow-hidden">
           <div className="p-3 pt-0 sm:p-4 flex flex-col space-y-4 sm:space-y-5 h-full">
-            {/* Header */}
             <div className="flex justify-between items-center">
               <h1 className="text-3xl font-semibold mb-0">Deduction</h1>
             </div>
 
             <div className="p-0 flex flex-col space-y-4 sm:space-y-5 min-h-full">
-              {/* Search and Filters */}
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 sm:gap-4">
                 <div className="relative w-full md:flex-1">
                   <Search className="absolute left-2.5 sm:left-3 top-2.5 sm:top-3 h-4 sm:h-4.5 w-4 sm:w-4.5 text-muted-foreground" />
@@ -309,7 +302,7 @@ export default function Deduction() {
                   <Button
                     variant="outline"
                     onClick={clearFilters}
-                    className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-[#6366F1]"
+                    className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-primary"
                   >
                     Clear Filters
                   </Button>

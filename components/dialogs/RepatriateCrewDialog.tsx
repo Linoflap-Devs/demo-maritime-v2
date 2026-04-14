@@ -470,7 +470,7 @@ export function RepatriateCrewDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="p-2 max-w-[800px] gap-0 border rounded-lg overflow-hidden bg-[#FCFCFC]" overlayClassName="bg-transparent">
         <DialogHeader className="p-7 pb-2">
-          <DialogTitle className="text-2xl font-semibold text-[#2F3593] text-center">
+          <DialogTitle className="text-2xl font-semibold text-primary text-center">
             Repatriate Crews
           </DialogTitle>
         </DialogHeader>

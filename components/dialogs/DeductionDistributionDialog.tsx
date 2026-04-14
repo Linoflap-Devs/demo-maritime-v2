@@ -63,7 +63,7 @@ export function DeductionDistributionDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[900px] bg-[#FCFCFC]">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Deduction Distribution - {crewName}
           </DialogTitle>
         </DialogHeader>

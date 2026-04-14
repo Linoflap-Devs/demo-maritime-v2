@@ -869,7 +869,7 @@ export function CrewAllottee({
                 </div>
                 <div className="w-84 text-left mt-2">
                   {isEditingAllottee ? (
-                    <span className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold text-blue-700 bg-blue-100 rounded-full">
+                    <span className="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold text-primary bg-blue-100 rounded-full">
                       <Pencil size={16} />
                       Editing
                     </span>

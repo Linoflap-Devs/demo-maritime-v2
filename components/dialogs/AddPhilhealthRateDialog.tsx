@@ -170,7 +170,7 @@ export function AddPhilhealthRateDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[600px] bg-[#FCFCFC] p-10">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Add Philhealth Contribution Rate
           </DialogTitle>
           {/* <DialogDescription className="text-center text-sm text-gray-600">
@@ -328,7 +328,7 @@ export function AddPhilhealthRateDialog({
               </Button>
               <Button
                 type="submit"
-                className="flex-1 text-sm bg-[#2E37A4] hover:bg-[#2E37A4]/90"
+                className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
