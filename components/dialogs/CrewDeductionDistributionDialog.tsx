@@ -52,7 +52,7 @@ export function CrewDeductionDistribution({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[900px] bg-[#FCFCFC]">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">Deduction Distribution</DialogTitle>
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">Deduction Distribution</DialogTitle>
         </DialogHeader>
         <div className="mt-6">
           <DataTable 

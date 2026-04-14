@@ -120,7 +120,7 @@ export function AddWageDescriptionDialog({
       }}>
       <DialogContent className="p-6 max-w-[600px] gap-0 border rounded-lg overflow-hidden bg-[#FCFCFC]">
         <DialogHeader> 
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Add Wage Description
           </DialogTitle>
         </DialogHeader>
@@ -222,7 +222,7 @@ export function AddWageDescriptionDialog({
               </Button>
               <Button
                 type="submit"
-                className="flex-1 text-sm h-11 bg-[#2E37A4] hover:bg-[#2E37A4]/90"
+                className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
                 disabled={isSubmitting}>
                 {isSubmitting ? (
                   <>

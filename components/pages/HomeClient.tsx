@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { usePathname, useRouter } from "next/navigation";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Menu, PanelLeft, PanelLeftClose } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -11,6 +11,8 @@ import { getHomeBreadcrumb } from "@/src/routes/getHomeBreadcrumb";
 import { Sidebar } from "@/src/routes/sidebar";
 import { toast } from "@/components/ui/use-toast";
 import { logoutUser } from "@/src/services/auth/auth.api";
+import axiosInstance from "@/src/lib/axios";
+import { SettingsItem } from "@/src/services/settings/settings.api";
 
 interface User {
   Email: string;
@@ -29,11 +31,18 @@ export default function HomeLayoutClient({
   const router = useRouter();
 
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [settingsConfig, setSettingsConfig] = useState<SettingsItem[]>([]);
 
   const routes = useMemo(
     () => getHomeRoutes(pathname, user.UserType),
     [pathname, user.UserType]
   );
+
+  useEffect(() => {
+    axiosInstance.get("/config").then((res) => {
+      if (res.data.success) setSettingsConfig(res.data.data);
+    });
+  }, []);
 
   const handleLogout = async () => {
     try {
@@ -59,7 +68,6 @@ export default function HomeLayoutClient({
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">
-      {/* Mobile Sidebar */}
       <Sheet>
         <SheetTrigger asChild className="md:hidden">
           <Button
@@ -85,11 +93,11 @@ export default function HomeLayoutClient({
               UserTypeName: "Unknown",
             }}
             onLogout={handleLogout}
+            settingsConfig={settingsConfig}
           />
         </SheetContent>
       </Sheet>
 
-      {/* Desktop Sidebar */}
       <div
         className={cn(
           "hidden md:block transition-all duration-300 mr-0",
@@ -109,13 +117,12 @@ export default function HomeLayoutClient({
             UserTypeName: "Unknown",
           }}
           onLogout={handleLogout}
+          settingsConfig={settingsConfig} // Pass settingsConfig to Sidebar
         />
       </div>
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col overflow-hidden pl-1 pr-4 py-4">
         <div className="flex flex-col h-full w-full rounded-xl overflow-hidden shadow-sm">
-          {/* Breadcrumb / Header */}
           <div className="flex items-center p-4 bg-[#F9F9F9] border-b">
             <span
               onClick={() => setIsSidebarCollapsed(!isSidebarCollapsed)}
@@ -133,7 +140,6 @@ export default function HomeLayoutClient({
               </div>
             </div>
           </div>
-
           <main className="flex-1 overflow-auto bg-[#F9F9F9]">{children}</main>
         </div>
       </div>

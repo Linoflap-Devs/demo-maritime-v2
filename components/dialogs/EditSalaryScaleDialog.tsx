@@ -145,7 +145,7 @@ export function EditSalaryScaleDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="p-6 pt-2 max-w-[600px] gap-0 border rounded-lg overflow-hidden bg-[#FCFCFC]">
         <DialogHeader className="p-6 pb-0">
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Edit Salary Scale for {salaryScale.Rank}
              {/* - {salaryScale.Wage} */}
           </DialogTitle>
@@ -230,7 +230,7 @@ export function EditSalaryScaleDialog({
             </Button>
           </DialogClose>
           <Button
-            className="flex-1 text-sm h-11 bg-[#2E37A4] hover:bg-[#2E37A4]/90"
+            className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
             onClick={handleSaveChanges}
             disabled={isLoading}>
             {isLoading ? (

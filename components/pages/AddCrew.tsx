@@ -1811,13 +1811,11 @@ export default function AddCrew() {
                     </div>
                   </TabsContent>
 
-                  {/* Add Summary Tab Content */}
                   <TabsContent
                     value="summary"
                     className="p-6 mt-0 overflow-y-auto scrollbar-hide flex-1"
                   >
                     <div className="space-y-8">
-                      {/* Personal Information Summary */}
                       <div>
                         <h3 className="text-lg font-bold mb-4 text-primary">
                           Personal Information Summary

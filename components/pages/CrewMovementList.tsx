@@ -1001,7 +1001,7 @@ export default function CrewMovementList() {
         <Dialog open={modalOpenJoin} onOpenChange={setModalOpenJoin}>
           <DialogContent className="sm:max-w-[650px] bg-[#FCFCFC] p-10">
             <DialogHeader className="mb-2">
-              <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+              <DialogTitle className="text-center text-2xl font-semibold text-primary">
                 Confirm Join List
               </DialogTitle>
             </DialogHeader>
@@ -1009,7 +1009,7 @@ export default function CrewMovementList() {
             {selectedCrews?.length > 0 ? (
               <div className="flex flex-wrap gap-3 justify-center">
                 {selectedCrews.map((crew, index) => (
-                  <div key={index} className="px-4 py-2 bg-[#2E37A4] text-white rounded-full font-medium text-sm">
+                  <div key={index} className="px-4 py-2 bg-primary text-white rounded-full font-medium text-sm">
                     {index + 1}. {crew.FirstName} {crew.LastName}
                   </div>
                 ))}
@@ -1030,7 +1030,7 @@ export default function CrewMovementList() {
               <Button
                 type="button"
                 onClick={handleJoin}
-                className="flex-1 bg-[#2E37A4] hover:bg-[#2E37A4]/90 text-white"
+                className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
               >
                 {(isLoadingJoin && isLoadingRepatriate) ? (
                   <>
@@ -1052,7 +1052,7 @@ export default function CrewMovementList() {
         <Dialog open={modalOpenRepatriate} onOpenChange={setModalOpenRepatriate}>
           <DialogContent className="sm:max-w-[650px] bg-[#FCFCFC] p-10">
             <DialogHeader className="mb-2">
-              <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+              <DialogTitle className="text-center text-2xl font-semibold text-primary">
                 Confirm Repatriate List
               </DialogTitle>
             </DialogHeader>
@@ -1060,7 +1060,7 @@ export default function CrewMovementList() {
             {selectedRows?.length > 0 ? (
               <div className="flex flex-wrap gap-3 justify-center">
                 {selectedRows.map((crew, index) => (
-                  <div key={index} className="px-4 py-2 bg-[#2E37A4] text-white rounded-full font-medium text-sm">
+                  <div key={index} className="px-4 py-2 bg-primary text-white rounded-full font-medium text-sm">
                     {index + 1}. {crew.name.toUpperCase()}
                   </div>
                 ))}
@@ -1081,7 +1081,7 @@ export default function CrewMovementList() {
               <Button
                 type="button"
                 onClick={handleRepatriate}
-                className="flex-1 bg-[#2E37A4] hover:bg-[#2E37A4]/90 text-white"
+                className="flex-1 text-sm h-11 bg-primary hover:bg-primary/90"
               >
                 {(isLoadingJoin && isLoadingRepatriate) ? (
                   <>

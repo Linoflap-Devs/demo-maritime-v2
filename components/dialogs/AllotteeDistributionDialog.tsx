@@ -65,7 +65,7 @@ export function AllotteeDistributionDialog({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[900px] bg-[#FCFCFC]">
         <DialogHeader>
-          <DialogTitle className="text-center text-2xl font-semibold text-[#2E37A4]">
+          <DialogTitle className="text-center text-2xl font-semibold text-primary">
             Allottee Distribution - {crewName}
           </DialogTitle>
         </DialogHeader>

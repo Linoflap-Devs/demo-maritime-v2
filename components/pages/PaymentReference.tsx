@@ -217,7 +217,7 @@ export default function PaymentReference() {
     },
     {
       accessorKey: "Amount",
-      header: ({ column }) => ( 
+      header: ({ column }) => (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
@@ -255,7 +255,6 @@ export default function PaymentReference() {
       id: "actions",
       header: "Actions",
       cell: ({ row }) => {
-        const PaymentReferenceID = row.original;
 
         return (
           <div className="text-center">
@@ -363,21 +362,21 @@ export default function PaymentReference() {
                   ))}
                 </SelectContent>
               </Select>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full md:w-auto">
-                  <Button
-                    variant="outline"
-                    onClick={clearFilters}
-                    className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-[#6366F1]"
-                  >
-                    Clear Filters
-                  </Button>
-                </div>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full md:w-auto">
+                <Button
+                  variant="outline"
+                  onClick={clearFilters}
+                  className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-primary"
+                >
+                  Clear Filters
+                </Button>
+              </div>
 
 
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 w-full md:w-auto">
                 <Button
-                  className="bg-[#21299D] hover:bg-indigo-700 px-6"
+                  className="bg-primary hover:bg-primary px-6"
                   onClick={() => setAddPayment(true)}
                 >
                   <Plus />
@@ -409,14 +408,14 @@ export default function PaymentReference() {
         }}
       />
 
-        {selectedPaymentData && editselectedPaymentDialogOpen && (
-          <EditPaymentReference
-            open={editselectedPaymentDialogOpen}
-            onOpenChange={setEditselectedPaymentDialogOpen}
-            paymentReferenceData={selectedPaymentData}
-            onSuccess={handlePaymentUpdated}
-          />
-        )}
+      {selectedPaymentData && editselectedPaymentDialogOpen && (
+        <EditPaymentReference
+          open={editselectedPaymentDialogOpen}
+          onOpenChange={setEditselectedPaymentDialogOpen}
+          paymentReferenceData={selectedPaymentData}
+          onSuccess={handlePaymentUpdated}
+        />
+      )}
     </div>
   );
 }

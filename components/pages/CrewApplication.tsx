@@ -75,8 +75,6 @@ interface Application {
   ApplicationType: string;
   ApplicationOperation: string;
   RequestData: AllotteeRequestData | HDMFUpgradeRequestData;
-  //Payslip: boolean;
-  //AllotmentType: boolean;
 }
 
 export default function CrewApplication() {
@@ -205,7 +203,6 @@ export default function CrewApplication() {
     },
   ];
 
-  // Remove "actions" column if selected application is Declined
   const columns: ColumnDef<Application>[] =
     activeTab === "declined"
       ? baseColumns.filter((col) => col.id !== "actions")

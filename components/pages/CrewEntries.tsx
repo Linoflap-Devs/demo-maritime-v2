@@ -38,9 +38,7 @@ export default function Deduction() {
   const [searchTerm, setSearchTerm] = useState("");
   const [rankFilter, setRankFilter] = useState("all");
   const [vesselFilter, setVesselFilter] = useState("all");
-  //const [inactiveFilter, setInactiveFilter] = useState("verified");
   const [ranks, setRanks] = useState<CrewRankItem[]>([]);
-  //const [vessels, setVessels] = useState<VesselItem[]>([]);
   const [crewDeductionData, setCrewDeductionData] = useState<CrewDeduction[]>(
     []
   );
@@ -332,7 +330,7 @@ export default function Deduction() {
                   <Button
                     variant="outline"
                     onClick={clearFilters}
-                    className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-[#6366F1]"
+                    className="h-11 px-4 bg-white border border-[#E5E7EB] shadow-none rounded-xl text-primary"
                   >
                     Clear Filters
                   </Button>
